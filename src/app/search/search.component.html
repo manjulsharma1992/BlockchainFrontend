@@ -1,0 +1,38 @@
+<div class="search-container">
+  <h1>Search Details</h1>
+<app-animated-cube></app-animated-cube>
+  <!-- Search Form -->
+  <form (ngSubmit)="onSearch()" #searchForm="ngForm">
+      <label for="key">Enter ID:</label>
+      <input type="text" id="key" name="key" [(ngModel)]="searchKey" placeholder="Enter Key" required />
+      <button type="submit" [disabled]="!searchKey">Search</button>
+  </form>
+
+  <!-- Results Section -->
+  <div id="resultContainer" *ngIf="results.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <!-- <th>Student Master Data</th> -->
+            <th>Student Result Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of results">
+            <td style="color: black;">{{ item.key }}</td>
+            <!-- <td>
+              <a [routerLink]="['/studentmaster', item.key]">Click here</a>
+            </td> -->
+            <td>
+              <a [routerLink]="['/ExamReport', item.key]">Click here</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div *ngIf="noResults">
+      <p>No results found.</p>
+  </div>
+</div>

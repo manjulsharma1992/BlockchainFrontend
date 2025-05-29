@@ -1,0 +1,7 @@
+
+    <!-- <h1 class="h1">{{ animatedText }}</h1> -->
+    <h1 class="animated-text" *ngIf="showText">
+      <span *ngFor="let letter of textArray; let i = index"  class="word"  [style.animationDelay]="i * 100 + 'ms'">
+        {{ letter }}&nbsp;
+      </span>
+    </h1>

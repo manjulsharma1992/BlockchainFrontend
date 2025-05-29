@@ -1,0 +1,57 @@
+<div class="table-container">
+  <table mat-table [dataSource]="studentData" class="mat-elevation-z8">
+
+    <!-- Roll No Column -->
+    <ng-container matColumnDef="rollNo">
+      <th mat-header-cell *matHeaderCellDef> Roll No </th>
+      <td mat-cell *matCellDef="let row"> {{ row.rollNo }} </td>
+    </ng-container>
+
+    <!-- Exam Type Column -->
+    <ng-container matColumnDef="examType">
+      <th mat-header-cell *matHeaderCellDef> Exam Type </th>
+      <td mat-cell *matCellDef="let row"> {{ row.examType }} </td>
+    </ng-container>
+
+    <!-- Exam Month Column -->
+    <ng-container matColumnDef="examMonth">
+      <th mat-header-cell *matHeaderCellDef> Exam Month </th>
+      <td mat-cell *matCellDef="let row"> {{ row.examMonth }} </td>
+    </ng-container>
+
+    <!-- Cycle Column -->
+    <ng-container matColumnDef="cycle">
+      <th mat-header-cell *matHeaderCellDef> Cycle </th>
+      <td mat-cell *matCellDef="let row"> {{ row.cycle }} </td>
+    </ng-container>
+
+    <!-- Paper Column -->
+    <ng-container matColumnDef="paper">
+      <th mat-header-cell *matHeaderCellDef> Paper </th>
+      <td mat-cell *matCellDef="let row"> {{ row.paper }} </td>
+    </ng-container>
+
+    <!-- Count Column -->
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef> Count </th>
+      <td mat-cell *matCellDef="let row"> {{ row.count }} </td>
+    </ng-container>
+
+    <!-- View Details Button -->
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-button color="primary" (click)="openDetailsDialog(row)">
+          View Details
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Apply row highlighting based on count value -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        [ngClass]="{'highlight-row': row.count > 1}">
+    </tr>
+
+  </table>
+</div>

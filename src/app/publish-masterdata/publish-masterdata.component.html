@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Publish Student Data</h2>
+  <form (ngSubmit)="onSubmit()" #publishDataForm="ngForm">
+    
+    <div formArrayName="data">
+      <div class="record" *ngFor="let row of request.data; let i = index">
+        <h4>Record {{ i + 1 }}</h4>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="regno">Reg No:</label>
+            <input type="text" name="regno" [(ngModel)]="row.regno" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input type="text" name="fullname" [(ngModel)]="row.fullname" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="fname">Father's Name:</label>
+            <input type="text" name="fname" [(ngModel)]="row.fname" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="mname">Mother's Name:</label>
+            <input type="text" name="mname" [(ngModel)]="row.mname" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="enrollmentNo">Enrollment No:</label>
+            <input type="text" name="enrollmentNo" [(ngModel)]="row.enrollmentNo" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="c_Mobile">Mobile No:</label>
+            <input type="text" name="c_Mobile" [(ngModel)]="row.c_Mobile" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="c_Address">Address:</label>
+            <input type="text" name="c_Address" [(ngModel)]="row.c_Address" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="c_Pincode">Pincode:</label>
+            <input type="text" name="c_Pincode" [(ngModel)]="row.c_Pincode" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="adhaarNo">Adhaar No:</label>
+            <input type="text" name="adhaarNo" [(ngModel)]="row.adhaarNo" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

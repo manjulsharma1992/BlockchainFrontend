@@ -1,0 +1,24 @@
+.animated-text {
+    display: flex;
+    gap: 8px; /* Space between words */
+    color: whitesmoke;
+  }
+  
+  .word {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeIn 0.5s forwards;
+    white-space: nowrap; /* Keep words intact */
+    letter-spacing: 0px; /* No space between letters */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Left Side: Navigation Links -->
+    <ul class="navbar-list">
+      <li class="navbar-item">
+        <a routerLink="/dashboard" routerLinkActive="active" class="navbar-link">Dashboard</a>
+        <a routerLink="/home" routerLinkActive="active" class="navbar-link">Home</a>
+        <!-- <a routerLink="/upload" routerLinkActive="active" class="navbar-link">Upload Certificate</a> -->
+        <!-- <a routerLink="/verify" routerLinkActive="active" class="navbar-link">Verify Certificate</a> -->
+        <!-- <a routerLink="/Examdata" routerLinkActive="active" class="navbar-link">Publishexamdata</a>
+        <a routerLink="/Studentdata" routerLinkActive="active" class="navbar-link">Publishmasterdata</a> -->
+      </li>
+    </ul>
+
+    <!-- Right Side: User Info & Logout -->
+    <div class="user-info">
+      <span *ngIf="userId">👤 User: {{ userId }}</span>
+      <span *ngIf="loginTime">🕒 Logged in at: {{ loginTime }}</span>
+      <button (click)="logout()" class="logout-button">Logout</button>
+    </div>
+  </div>
+</nav>

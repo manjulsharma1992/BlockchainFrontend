@@ -1,0 +1,42 @@
+<!-- Floating Background Effects -->
+<div class="floating-particles">
+    <!-- <span></span><span></span><span> </span><span></span><span></span> -->
+  </div>
+  <div class="rotating-light">    <app-animated-cube></app-animated-cube></div>
+  <div class="rotating-lightpro">    <app-animated-cube></app-animated-cube></div>
+  <!-- Main Dashboard Container with Glow Effect -->
+  <div class="dashboard-main-container">
+
+      <!-- Dashboard Title -->
+      <h1 class="dashboard-heading">BLOCKCHAIN DASHBOARD</h1>
+  
+      <div class="dashboard-container">
+          <!-- Left Section: Transactions Analysis -->
+          <div class="chart-container">
+              <h2>Transactions Analysis</h2>
+              <canvas #transactionsChart></canvas>
+          </div>
+  
+          <!-- Right Section: Recent Transactions & Info -->
+          <div class="content-container">
+              <h2>Chain Information</h2>
+              <div class="info-box">
+                  <div class="block-info">Blocks: <span>{{count}}</span><br>
+                    Active Nodes: <span>{{nodecount}}</span></div>
+                  <div class="block-info"> Stream : <span>{{streams}}</span></div>
+              </div>
+  
+              <h3>Recent Transactions</h3>
+              <div *ngIf="studentData.length > 0; else noData">
+              <div class="transaction-box">
+                  <div *ngFor="let item of studentData" class="transaction"><span style="text-align: left; width: 90%;">TxID: {{ item.txid | slice: -10 }}  | Time: {{ item.time * 1000 | date: 'medium' }}</span></div>
+                </div>
+              </div>
+              <ng-template #noData>
+                <p *ngIf="noResults">No data available</p>
+                <p *ngIf="!noResults">Loading...</p>
+              </ng-template>
+            </div>
+      </div>
+  </div>
+  

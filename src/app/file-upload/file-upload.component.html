@@ -1,0 +1,48 @@
+<div class="upload-container"
+     (dragover)="onDragOver($event)"
+     (dragleave)="onDragLeave($event)"
+     (drop)="onDrop($event)"
+     [class.dragging]="isDragging"> -->
+
+  <!-- Roll No / Key Input -->
+  <mat-form-field appearance="outline">
+    <mat-label>Enter Roll No / Key</mat-label>
+    <input matInput [(ngModel)]="rollNo" placeholder="Enter Roll No or Key">
+  </mat-form-field>
+
+  <!-- Hidden File Input -->
+  <input #fileInput type="file" (change)="onFileSelected($event)" accept="application/pdf" hidden>
+
+  <!-- Drag & Drop Area -->
+  <div class="drag-drop-area" (click)="fileInput.click()">
+    <p *ngIf="!selectedFile">Drag & Drop your PDF here or <span class="click-text">Click to select</span></p>
+    <p *ngIf="selectedFile" class="file-info">Selected File: {{ selectedFile.name }}</p>
+  </div>
+
+  <!-- Buttons -->
+<div class="button-group">
+    <button mat-raised-button color="primary" (click)="uploadFile()">Upload</button>
+    <button mat-stroked-button color="warn" (click)="clearFile()">Clear</button>
+  </div>
+</div> 
+<!-- <div class="container">
+    <mat-form-field appearance="outline">
+      <mat-label>Roll No / Key</mat-label>
+      <input matInput [(ngModel)]="rollNo" placeholder="Enter Roll No or Key">
+    </mat-form-field>
+  
+    <div class="upload-area"
+         (dragover)="onDragOver($event)" 
+         (dragleave)="onDragLeave($event)" 
+         (drop)="onDrop($event)">
+      <p *ngIf="!selectedFile">Drag & Drop a PDF file or click to select</p>
+      <p *ngIf="selectedFile">{{ selectedFile.name }}</p>
+      <input type="file" (change)="onFileSelected($event)" accept="application/pdf">
+    </div>
+  
+    <button mat-raised-button color="primary" (click)="uploadFile()" [disabled]="uploadInProgress">
+      {{ uploadInProgress ? 'Uploading...' : 'Upload File' }}
+    </button>
+  </div> -->
+  
+  

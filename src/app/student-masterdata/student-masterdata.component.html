@@ -1,0 +1,42 @@
+<div class="student-grid-container">
+  <button class="back-button" (click)="goBack()">&#8592; Back</button>
+  <h2>Student Data</h2>
+
+  <div *ngIf="studentData.length > 0; else noData" class="grid-wrapper">
+    <div class="grid-header">
+      <span>Key</span>
+      <span>TimeStamp</span>
+      <span>User ID</span>
+      <span>Student Name</span>
+      <span>Father Name</span>
+      <span>Mother Name</span>
+      <span>Enrollment No</span>
+      <span>Mobile No</span>
+      <span>Address</span>
+      <span>Pincode</span>
+      <span>Aadhaar No</span>
+      <span>Publish Time</span>
+    </div>
+    <div class="grid-content">
+      <div *ngFor="let item of studentData" class="grid-row">
+        <span>{{ item.keys.join(', ') }}</span>
+        <span>{{ item.blocktime * 1000 | date: 'medium' }}</span>
+        <span>{{ item.data.json.regno }}</span>
+        <span>{{ item.data.json.fullname }}</span>
+        <span>{{ item.data.json.fname }}</span>
+        <span>{{ item.data.json.mname }}</span>
+        <span>{{ item.data.json.enrollmentNo }}</span>
+        <span>{{ item.data.json.c_Mobile }}</span>
+        <span>{{ item.data.json.c_Address }}</span>
+        <span>{{ item.data.json.c_Pincode }}</span>
+        <span>{{ item.data.json.adhaarNo }}</span>
+        <span>{{ item.data.json.publishtime | date: 'medium' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <p *ngIf="noResults">No data available for this student ID.</p>
+    <p *ngIf="!noResults">Loading...</p>
+  </ng-template>
+</div>

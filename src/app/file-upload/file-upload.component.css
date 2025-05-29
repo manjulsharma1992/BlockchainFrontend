@@ -1,0 +1,155 @@
+/* ✅ Upload Container */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* ✅ Drag & Drop Area */
+  .drag-drop-area {
+    width: 100%;
+    border: 2px dashed #1e88e5;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e88e5;
+    background: #f5faff;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* ✅ File Icon */
+  .drag-drop-area::before {
+    content: "📄"; /* Unicode for a file icon */
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+    animation: bounce 1.5s infinite alternate;
+  }
+  
+  /* ✅ Clickable Text */
+  .click-text {
+    color: #0d47a1;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  /* ✅ Hover & Dragging Effects */
+  .drag-drop-area:hover {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-color: #1565c0;
+    color: #0d47a1;
+  }
+  
+  .upload-container.dragging .drag-drop-area {
+    background: linear-gradient(135deg, #bbdefb, #90caf9);
+    border-color: #0d47a1;
+    color: #0d47a1;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* ✅ Glow Effect */
+  @keyframes glow {
+    0% {
+      box-shadow: 0px 0px 8px rgba(30, 136, 229, 0.2);
+    }
+    100% {
+      box-shadow: 0px 0px 15px rgba(30, 136, 229, 0.5);
+    }
+  }
+  
+  .drag-drop-area:hover {
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  /* ✅ Selected File Info */
+  .file-info {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* ✅ Button Group */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+  
+  .button-group button {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  /* ✅ Primary Button */
+  .button-group button[color="primary"] {
+    background: linear-gradient(135deg, #1e88e5, #0d47a1);
+    color: #ffffff;
+    border: none;
+  }
+  
+  .button-group button[color="primary"]:hover {
+    background: linear-gradient(135deg, #0d47a1, #1e88e5);
+  }
+  
+  /* ✅ Clear (Warning) Button */
+  .button-group button[color="warn"] {
+    background: linear-gradient(135deg, #ff5252, #d32f2f);
+    color: white;
+    border: none;
+  }
+  
+  .button-group button[color="warn"]:hover {
+    background: linear-gradient(135deg, #d32f2f, #ff5252);
+  }
+  
+  /* ✅ Responsive Adjustments */
+  @media (max-width: 480px) {
+    .upload-container {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .drag-drop-area {
+      padding: 30px;
+      font-size: 16px;
+    }
+  
+    .button-group {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+  
+  /* ✅ Bounce Animation for File Icon */
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+  

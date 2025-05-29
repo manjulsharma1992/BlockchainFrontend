@@ -1,0 +1,68 @@
+<!-- publish-data.component.html -->
+<div class="container">
+    <h1>Publish Data to Multichain Stream</h1>
+  
+    <table id="dataGrid">
+      <thead>
+        <tr>
+          <th>RollNo</th>
+          <th>Name</th>
+          <th>Cycle</th>
+          <th>Exam Type</th>
+          <th>Exam Month</th>
+          <th>Exam Year</th>
+          <th>Paper</th>
+          <th>Form ID</th>
+          <th>Alloc ID</th>
+          <th>Marks</th>
+          <th>Actions</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; let i = index">
+          <td><input type="text" [(ngModel)]="row.rollno" required></td>
+          <td><input type="text" [(ngModel)]="row.name" required></td>
+          <td>
+            <select [(ngModel)]="row.cycle" required>
+              <option value="First Year">First Year</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="row.examType" required>
+              <option value="Fresh">Fresh</option>
+              <option value="Reappear">Reappear</option>
+              <option value="Reval">Reval</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="row.examMonth" required>
+              <option value="APRIL">APRIL</option>
+              <option value="NOV">NOV</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="row.examYear" required>
+              <option value="2025">2025</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="row.paper" required>
+              <option value="Demo Paper">Demo Paper</option>
+            </select>
+          </td>
+          <td><input type="number" [(ngModel)]="row.formid" required></td>
+          <td><input type="number" [(ngModel)]="row.allocid" required></td>
+          <td><input type="number" [(ngModel)]="row.marks" required></td>
+          <td>
+            <button (click)="removeRow(i)">Remove</button>
+          </td>
+          <!-- <td class="status">{{ row.status }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  
+    <button type="button" (click)="addRow()">Add Row</button>
+    <button type="button" id="publishBtn" (click)="publishdatasubmit()">Publish Data</button>
+  </div>
+  

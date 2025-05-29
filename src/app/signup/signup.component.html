@@ -1,0 +1,23 @@
+<app-animated-text></app-animated-text>
+<div class="main-container">
+  <app-animated-cube></app-animated-cube>
+  <!-- Login Form -->
+  <div class="login-container">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="fullName" type="text" required />
+  
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" required />
+  
+    <label for="password">Password:</label>
+    <input id="password" formControlName="password" type="password" required />
+  
+    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>&nbsp;
+    <button (click)="Onclick()" type="button">Login</button>
+  </form>
+  <div>
+
+
+    
+  </div>

@@ -1,0 +1,34 @@
+<div class="verify-container">
+    <h2>Verify Certificate</h2>
+  
+    <!-- Input Field for Key -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Enter Key</mat-label>
+      <input matInput [(ngModel)]="key" placeholder="Enter your verification key">
+    </mat-form-field>
+  
+    <!-- Styled File Upload -->
+    <div class="drag-drop-area" (click)="fileInput.click()">
+      <input #fileInput type="file" (change)="onFileSelected($event)" accept="image/*,application/pdf" hidden>
+      <p *ngIf="!selectedFile">Drag & Drop your file here or <span class="click-text">Click to select</span></p>
+      <p *ngIf="selectedFile" class="file-info">Selected File: {{ selectedFile.name }}</p>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="button-group">
+      <button mat-raised-button color="primary" (click)="verifyFile()">Verify</button>
+      <button mat-stroked-button color="warn" (click)="clearFile()">Clear</button>
+    </div>
+  
+    <!-- Verification Status -->
+    <p class="verification-status"
+       [ngClass]="{ 'success': verificationStatus.includes('✅'), 'error': verificationStatus.includes('❌') }">
+      {{ verificationStatus }}
+    </p>
+  
+    <!-- Show Download Button if verification is successful -->
+    <div *ngIf="verifiedFileUrl">
+      <button mat-raised-button class="download-btn" (click)="downloadFile()">Download File</button>
+    </div>
+  </div>
+  

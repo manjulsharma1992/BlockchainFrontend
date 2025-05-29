@@ -1,0 +1,69 @@
+<h2 mat-dialog-title>Exam Details</h2>
+
+<mat-dialog-content>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Paper Column -->
+    <ng-container matColumnDef="paper">
+      <th mat-header-cell *matHeaderCellDef> Paper </th>
+      <td mat-cell *matCellDef="let detail"> {{ detail.paper || 'N/A' }} </td>
+    </ng-container>
+
+    <!-- Marks Obtained Column -->
+    <ng-container matColumnDef="marksObtained">
+      <th mat-header-cell *matHeaderCellDef> Marks Obtained </th>
+      <td mat-cell *matCellDef="let detail" 
+          [ngClass]="{'highlight-cell': detail.marksChanged}">
+        {{ detail.marksObtained || 'N/A' }}
+      </td>
+    </ng-container>
+
+    <!-- Absent Column -->
+    <ng-container matColumnDef="absent">
+      <th mat-header-cell *matHeaderCellDef> Absent </th>
+      <td mat-cell *matCellDef="let detail"> {{ detail.absent ==="true" ? 'Yes' : 'No' }} </td>
+    </ng-container>
+
+    <!-- Modified by Column -->
+    <ng-container matColumnDef="loginname">
+      <th mat-header-cell *matHeaderCellDef> UserID </th>
+      <td mat-cell *matCellDef="let detail" 
+          [ngClass]="{'highlight-cell': detail.modifiedByChanged}">
+        {{ detail.loginname === "Unknown" ? 'Admin' : detail.loginname }}
+      </td>
+    </ng-container>
+
+    <!-- Modified Date Column -->
+    <ng-container matColumnDef="changeDate">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let detail" [ngClass]="{'highlight-cell': detail.modifieddateChanged}" > {{ detail.changeDate | date: 'medium' }} </td>
+    </ng-container>
+
+
+    
+
+    <!-- Operation Type Column -->
+    <ng-container matColumnDef="operationType">
+      <th mat-header-cell *matHeaderCellDef> Action Type </th>
+      <td mat-cell *matCellDef="let detail" 
+          [ngClass]="{
+            'insert-action': detail.operationType === 'INSERT',
+            'update-action': detail.operationType === 'UPDATE',
+            'delete-action': detail.operationType === 'DELETE'
+          }">
+        {{ detail.operationType || 'N/A' }}
+      </td>
+    </ng-container>
+
+    <!-- Table Headers -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+    <!-- Table Rows -->
+    <tr mat-row *matRowDef="let detail; columns: displayedColumns;"></tr>
+
+  </table>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

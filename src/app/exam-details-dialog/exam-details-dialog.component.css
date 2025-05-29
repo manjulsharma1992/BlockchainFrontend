@@ -1,0 +1,64 @@
+.mat-dialog-container {
+    min-width: 700px; /* Adjust as needed */
+    max-width: 90vw;  /* Prevent overflow */
+  }
+  /* Style for header */
+.highlight-header {
+    background-color: #3f51b5 !important; /* Material Blue */
+    color: white !important;
+    font-weight: bold;
+  }
+  .highlight-row {
+    background-color: rgba(255, 0, 0, 0.2) !important; /* Light Red */
+    font-weight: bold;
+  }
+  /* Highlight row where `loginname` or `marksObtained` changed */
+/* Highlight only changed cells */
+
+  
+  /* Different colors for INSERT, UPDATE, DELETE */
+  .insert-action {
+    background-color: rgba(0, 255, 0, 0.3) !important; /* Light Green */
+  }
+  
+  .update-action {
+    background-color: rgba(255, 255, 0, 0.3) !important; /* Light Yellow */
+  }
+  
+  .delete-action {
+    background-color: rgba(255, 0, 0, 0.3) !important; /* Light Red */
+  }
+  
+  
+  /* Style for highlighted cells */
+  .highlight-cell {
+    background-color:lightblue !important;  /* Light Red */
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  /* Highlight column headers */
+th.mat-header-cell {
+    background-color: #3f51b5 !important;
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  
+  /* Action Type Colors */
+  .insert-action {
+    background-color: #4caf50 !important; /* Green for INSERT */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .update-action {
+    background-color: #ff9800 !important; /* Orange for UPDATE */
+    color: black;
+    font-weight: bold;
+  }
+  
+  .delete-action {
+    background-color: #d32f2f !important; /* Red for DELETE */
+    color: white;
+    font-weight: bold;
+  }

@@ -1,0 +1,42 @@
+<app-animated-text></app-animated-text>
+
+<div class="main-container">
+  <app-animated-cube></app-animated-cube> 
+  <!-- Login Form -->
+  <div class="login-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <h2>Login</h2>
+
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" formControlName="email" placeholder="Enter your email" />
+              <div class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                  Valid email is required.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input id="password" type="password" formControlName="password" placeholder="Enter your password" />
+              <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                  Password must be at least 6 characters long.
+              </div>
+          </div>
+
+          <button type="submit" [disabled]="loginForm.invalid">Login</button>&nbsp;
+          <button (click)="Onclick()" type="button">Signup</button>
+      </form>
+  </div>
+<!-- <app-animated-cube></app-animated-cube>  -->
+  <!-- Rotating Cube -->
+  <!-- <div class="cube-wrapper">
+      <div class="cube">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face left"></div>
+          <div class="face right"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+      </div>
+  </div> -->
+</div>

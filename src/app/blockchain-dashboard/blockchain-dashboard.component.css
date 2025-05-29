@@ -1,0 +1,225 @@
+/* === Main Dashboard Container with Background Flow Effect === */
+.dashboard-main-container {
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.1));
+    background-size: 300% 300%;
+    animation: bgFlow 6s infinite linear;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* === Dashboard Heading with Pulsating Neon Effect === */
+.dashboard-heading {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    /* background: linear-gradient(45deg, cyan, blue, cyan); */
+    background: white;
+    background-size: 400% 400%;
+    /* animation: movingGlow 3s infinite linear, glow 1.5s infinite alternate, fadeIn 1s ease-in-out; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+/* === Dashboard Flexbox for Equal Sized Sections === */
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* === Equal Sized Containers with Neon Glow & Hover Effects === */
+.chart-container,
+.content-container {
+    flex: 1;
+    min-height: 500px;
+    max-width: 80%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #0ff;
+    transition: all 0.3s ease-in-out;
+    animation: fadeInUp 0.8s ease-in-out, borderGlow 2s infinite alternate;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(0, 255, 255, 0.5);
+}
+
+.chart-container:hover,
+.content-container:hover {
+    box-shadow: 0px 0px 30px #0ff;
+    transform: scale(1.05);
+}
+
+/* === Info Boxes === */
+.info-box {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.block-info,
+.peers-info {
+    background: #111;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #0ff;
+    width: 45%;
+}
+
+/* === Transactions Box === */
+.transaction-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.3s;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.transaction-box:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+}
+
+/* === Individual Transactions === */
+.transaction {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+     margin: 5px; 
+    border-radius: 5px;
+    text-align: center;
+    color: #0ff;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.transaction:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.02);
+}
+
+/* === Fade-in Animation === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Glow Animation === */
+@keyframes glow {
+    from { text-shadow: 0px 0px 10px #0ff; }
+    to { text-shadow: 0px 0px 30px #0ff; }
+}
+
+/* === Fade-in Up Animation === */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Running Glow Effect Around Containers === */
+@keyframes borderGlow {
+    0% { box-shadow: 0px 0px 15px #0ff; }
+    50% { box-shadow: 0px 0px 30px #0ff; }
+    100% { box-shadow: 0px 0px 15px #0ff; }
+}
+
+/* === Moving Neon Lines Effect === */
+@keyframes movingGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* === Neon Border Animation === */
+@keyframes neonBorder {
+    0% { border: 2px solid rgba(0, 255, 255, 0.5); }
+    50% { border: 2px solid rgba(0, 255, 255, 1); }
+    100% { border: 2px solid rgba(0, 255, 255, 0.5); }
+}
+
+/* === Background Flow Effect === */
+@keyframes bgFlow {
+    0% { background-position: 0px 0px; }
+    50% { background-position: 100px 100px; }
+    100% { background-position: 0px 0px; }
+}
+
+/* === Floating Particles Effect === */
+@keyframes floatingParticles {
+    0% { transform: translateY(0px); opacity: 0.5; }
+    50% { transform: translateY(-20px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 0.5; }
+}
+/* 🎨 Global Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: whitesmoke;
+    margin-bottom: 15px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.floating-particles span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: cyan;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: floatingParticles 5s infinite ease-in-out;
+}
+
+/* Randomly Position Particles */
+.floating-particles span:nth-child(1) { top: 10%; left: 15%; animation-duration: 4s; }
+.floating-particles span:nth-child(2) { top: 30%; left: 50%; animation-duration: 5s; }
+.floating-particles span:nth-child(3) { top: 70%; left: 80%; animation-duration: 6s; }
+.floating-particles span:nth-child(4) { top: 40%; left: 20%; animation-duration: 7s; }
+.floating-particles span:nth-child(5) { top: 60%; left: 70%; animation-duration: 5s; }
+
+/* === Rotating Light Beam Effect === */
+@keyframes rotatingBeam {
+    0% { transform: rotate(0deg); opacity: 0.3; }
+    50% { transform: rotate(180deg); opacity: 0.7; }
+    100% { transform: rotate(360deg); opacity: 0.3; }
+}
+
+.rotating-light {
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0,255,255,0.2) 10%, transparent 70%);
+    transform-origin: center;
+    animation: rotatingBeam 10s infinite linear;
+    z-index: -2;
+}
+.rotating-lightpro {
+    position: fixed;
+    top: 50%;
+    left: 90%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0,255,255,0.2) 10%, transparent 70%);
+    transform-origin: center;
+    animation: rotatingBeam 10s infinite linear;
+    z-index: -2;
+}
