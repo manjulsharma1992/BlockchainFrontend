@@ -4,6 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "MultiChain": {
+      
       "projectType": "application",
       "schematics": {},
       "root": "",
